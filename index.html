@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="auth">
+      <div id="login-form">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username" />
+        <input type="password" id="login-password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+        <p>
+          Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a>
+        </p>
+      </div>
+
+      <div id="signup-form" style="display: none">
+        <h2>Sign Up</h2>
+        <input type="text" id="signup-username" placeholder="Username" />
+        <input type="password" id="signup-password" placeholder="Password" />
+        <button onclick="signup()">Sign Up</button>
+        <p>
+          Already have an account? <a href="#" onclick="showLogin()">Login</a>
+        </p>
+      </div>
+    </div>
+
+    <div id="quiz" style="display: none">
+      <h2>Quiz</h2>
+      <div id="timer">Time left: <span id="time">60</span> seconds</div>
+      <div id="progress">
+        Question <span id="current-question">1</span> of
+        <span id="total-questions">5</span>
+      </div>
+      <div id="question"></div>
+      <div id="answers"></div>
+      <button onclick="nextQuestion()">Next</button>
+      <div id="feedback" style="display: none"></div>
+    </div>
+
+    <div id="result" style="display: none">
+      <h3>Your score: <span id="score"></span></h3>
+      <button onclick="restartQuiz()">Restart Quiz</button>
+      <button onclick="showLeaderboard()">View Leaderboard</button>
+    </div>
+
+    <div id="leaderboard" style="display: none">
+      <h2>Leaderboard</h2>
+      <ul id="leaderboard-list"></ul>
+      <button onclick="hideLeaderboard()">Back to Quiz</button>
+      <button onclick="clearLeaderboard()">Clear Leaderboard</button>
+    </div>
+
+    <audio id="correct-sound" src="correct.mp3" preload="auto"></audio>
+    <audio id="incorrect-sound" src="incorrect.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
